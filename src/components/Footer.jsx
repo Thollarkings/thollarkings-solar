@@ -55,6 +55,11 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
+                <Link to="/our-solar-systems" style={{ color: '#ff6b35' }}>
+                  Our Solar Systems
+                </Link>
+              </li>
+              <li>
                 <Link to="/contact" style={{ color: '#ff6b35' }}>
                   Contact
                 </Link>

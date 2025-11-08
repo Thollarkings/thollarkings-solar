@@ -1,0 +1,312 @@
+/* Navbar base layout */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.3),
+    rgba(10, 10, 10, 0.534),
+    rgba(0, 0, 0, 0.3)
+  );
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 107, 53, 0.18);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+  transition: all 0.5s ease;
+}
+
+.navbar-inner {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0 1.5rem;
+  background: transparent;
+}
+
+.navbar-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 6rem;
+}
+
+/* Logo */
+.navbar-logo-link {
+  text-decoration: none;
+  font-weight: 900;
+  font-size: 2.1rem; /* base desktop-ish size */
+  letter-spacing: -0.03em;
+  display: inline-flex;
+  align-items: baseline;
+  white-space: nowrap;
+}
+
+.navbar-logo-main {
+  background: linear-gradient(to right, #ffffff, #ffffff, #ffffff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.navbar-logo-accent {
+  color: #ff6b35;
+  margin-left: 0.35rem;
+}
+
+/* Desktop nav */
+.navbar-links-desktop {
+  display: none;
+  align-items: center;
+  gap: 1rem;
+  margin-left: 1.5rem;
+}
+
+.navbar-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 0.9rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 999px;
+  text-decoration: none;
+  background-color: rgba(0, 0, 0, 0.54);
+  color: #d1d5db;
+  border: 1px solid rgba(148, 163, 253, 0.12);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.navbar-link-active {
+  background-color: #ff6b35;
+  color: #0a0a0a;
+}
+
+.navbar-link:hover:not(.navbar-link-active) {
+  background-color: rgba(17, 24, 39, 0.85);
+  color: #ffffff;
+}
+
+/* Call Now desktop button */
+.navbar-call-desktop {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  border-radius: 999px;
+  text-decoration: none;
+  background-color: #ff6b35;
+  color: #0a0a0a;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.navbar-call-desktop:hover {
+  background-color: #e55a2b;
+}
+
+/* Mobile hamburger */
+.navbar-toggle-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 1;
+}
+
+.navbar-toggle-btn {
+  position: relative;
+  padding: 1.5rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Ensure hamburger icon is visible on mobile */
+.navbar-toggle-btn svg {
+  stroke: #ffffff;
+}
+
+/* Pulsating halo behind hamburger icon */
+.navbar-toggle-btn::before {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.45);
+  box-shadow: 0 0 0 0 rgba(255, 107, 53, 0.35);
+  opacity: 0.9;
+  animation: navbar-pulse-ring 1.8s ease-in-out infinite;
+  z-index: -1;
+}
+
+/* Small inner glowing dot effect */
+.navbar-toggle-btn::after {
+  content: '';
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #ff6b35;
+  box-shadow: 0 0 12px rgba(255, 107, 53, 0.9);
+  animation: navbar-pulse-dot 1.5s ease-in-out infinite;
+}
+
+/* Keyframes for pulsating hamburger */
+@keyframes navbar-pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 107, 53, 0.5);
+    opacity: 0.9;
+  }
+  70% {
+    box-shadow: 0 0 0 14px rgba(255, 107, 53, 0);
+    opacity: 0;
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 107, 53, 0);
+    opacity: 0;
+  }
+}
+
+@keyframes navbar-pulse-dot {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.4);
+    opacity: 1;
+  }
+}
+
+/* Mobile dropdown */
+.navbar-mobile-wrap {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin-top: 1rem;
+  display: block;
+}
+
+.navbar-mobile-panel {
+  margin: 0 1.5rem;
+  padding: 2.5rem 2rem;
+  background: radial-gradient(
+      circle at top left,
+      rgba(255, 107, 53, 0.12),
+      transparent
+    ),
+    rgba(15, 15, 20, 0.96);
+  border-radius: 1.75rem;
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.85);
+  border: 1px solid rgba(255, 107, 53, 0.18);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+}
+
+.navbar-mobile-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.navbar-mobile-link {
+  display: block;
+  padding: 1.1rem 1.8rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 1.3rem;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.navbar-mobile-link-active {
+  color: #0a0a0a;
+  background: linear-gradient(to right, #ff6b35, #ff915f);
+  box-shadow: 0 16px 40px rgba(255, 107, 53, 0.35);
+}
+
+.navbar-mobile-link-default {
+  color: #e5e7eb;
+  background: rgba(31, 31, 31, 0.9);
+}
+
+.navbar-mobile-link-default:hover {
+  color: #ff6b35;
+  background: rgba(45, 45, 55, 1);
+}
+
+/* Mobile Call Now CTA */
+.navbar-mobile-cta-wrap {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 107, 53, 0.18);
+}
+
+.navbar-mobile-cta {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 1.2rem 1.8rem;
+  font-weight: 700;
+  font-size: 1.05rem;
+  text-decoration: none;
+  border-radius: 999px;
+  background: linear-gradient(to right, #ff6b35, #ff915f);
+  color: #0a0a0a;
+  box-shadow: 0 18px 45px rgba(255, 107, 53, 0.35);
+  transition: all 0.3s ease;
+}
+
+.navbar-mobile-cta:hover {
+  transform: translateY(-2px);
+}
+
+/* Mobile tweaks: ensure logo + hamburger fit on all small screens */
+@media (max-width: 600px) {
+  .navbar-row {
+    height: 4.5rem;
+    padding-right: 0.25rem;
+  }
+
+  .navbar-logo-link {
+    font-size: 1.6rem; /* smaller on narrow devices */
+  }
+
+  .navbar-toggle-btn {
+    padding: 0.9rem; /* tighter so it fits alongside logo */
+  }
+}
+
+/* Responsive behaviour */
+@media (min-width: 768px) {
+  .navbar-inner {
+    padding: 0 2rem;
+  }
+
+  .navbar-links-desktop {
+    display: flex;
+  }
+
+  .navbar-toggle-wrap {
+    display: none;
+  }
+}

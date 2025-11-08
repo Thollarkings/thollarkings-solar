@@ -57,7 +57,9 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+      {/* Reduced hero height while keeping full-width background */}
+      <section className="relative flex items-center justify-center overflow-hidden"
+        style={{ minHeight: '70vh' }}>
         <div
           className="absolute inset-0"
           style={{
@@ -69,7 +71,11 @@ const Home = () => {
         />
         <div className="absolute inset-0 bg-gradient-to-br from-primary/80 via-secondary/60 to-primary/80" />
 
-        <div className="relative z-10 text-center px-6 max-w-5xl">
+        {/* Shift hero content slightly lower for better visual balance */}
+        <div
+          className="relative z-10 text-center px-6 max-w-5xl"
+          style={{ marginTop: '6rem' }}
+        >
 
 
           <motion.p
@@ -95,7 +101,6 @@ const Home = () => {
             }}
           >
             Call Now for Free Consultation
-            <ArrowRight className="ml-3" size={24} />
           </motion.a>
         </div>
       </section>
