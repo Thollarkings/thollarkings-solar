@@ -7,7 +7,7 @@ const Home = () => {
       image: "/Gemini_Generated_Image_a0aaxqa0aaxqa0aa.png",
       title: "Residential Solar Solutions",
       description: "Power your home with clean, renewable energy and reduce your electricity bills by up to 90%.",
-      icon: <Sun className="w-8 h-8 text-orange-400" />
+      icon: <Sun className="w-8 h-8 text-orange-400 mb-3" />
     },
     {
       image: "/Commercial Solar Systems.png",
@@ -143,7 +143,7 @@ const Home = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
                 <div className="p-8">
-                  <h3 className="text-2xl font-bold text-primary mb-4 group-hover:text-accent transition-colors duration-300">{card.title}</h3>
+                  <h3 className="text-2xl mt-6 font-bold text-primary mb-4 group-hover:text-accent transition-colors duration-300">. . {card.title}</h3>
                   <p className="text-muted leading-relaxed text-lg">{card.description}</p>
                 </div>
               </motion.div>
@@ -190,7 +190,7 @@ const Home = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
                 <div className="p-8">
-                  <h3 className="text-2xl font-bold text-primary mb-4 group-hover:text-accent transition-colors duration-300">{service.title}</h3>
+                  <h3 className="text-2xl font-bold text-primary mb-4 group-hover:text-accent transition-colors duration-300">. . {service.title}</h3>
                   <p className="text-muted leading-relaxed text-lg">{service.description}</p>
                 </div>
               </motion.div>
