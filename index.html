@@ -4,21 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Redirecting to Thollarkings Solar</title>
-    <!-- GitHub Pages hard redirect to Vercel deployment -->
-    <meta http-equiv="refresh" content="0; url=https://thollarkings-solar.vercel.app/" />
+    <!-- Redirect ONLY when served from GitHub Pages domain -->
     <script>
       (function () {
+        var ghHost = "thollarkings.github.io";
         var target = "https://thollarkings-solar.vercel.app/";
-        if (window.location.href !== target) {
+        // Only redirect if we're on GitHub Pages, not on Vercel or elsewhere
+        if (window.location.hostname === ghHost && window.location.href !== target) {
           window.location.replace(target);
         }
       })();
     </script>
-    <noscript>
-      <meta http-equiv="refresh" content="0; url=https://thollarkings-solar.vercel.app/" />
-    </noscript>
   </head>
   <body>
-    <p>Redirecting to <a href="https://thollarkings-solar.vercel.app/">https://thollarkings-solar.vercel.app/</a>...</p>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
