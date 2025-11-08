@@ -74,7 +74,7 @@ const Home = () => {
         {/* Shift hero content slightly lower for better visual balance */}
         <div
           className="relative z-10 text-center px-6 max-w-5xl"
-          style={{ marginTop: '6rem' }}
+          style={{ marginTop: '10rem' }}
         >
 
 
